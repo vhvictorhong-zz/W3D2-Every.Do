@@ -142,6 +142,24 @@
     }
 }
 
+//Make tableview move
+
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    
+    if (sourceIndexPath != destinationIndexPath ) {
+        
+        [self.objects removeObjectAtIndex:sourceIndexPath.row];
+        [self.objects insertObject:self.objects atIndex:destinationIndexPath.row];
+        
+    }
+    
+}
+
+-(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return YES;
+    
+}
 
 #pragma mark - Master VC methods
 
