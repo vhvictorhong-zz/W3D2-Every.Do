@@ -9,11 +9,12 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "CustomTableViewCell.h"
+#import "AddItemViewController.h"
 #import "Todo.h"
 
 @interface MasterViewController ()
 
-@property NSMutableArray *objects;
+@property NSString *segueIdentifier;
 
 @end
 
@@ -24,8 +25,10 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(performSegue)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    self.segueIdentifier = @"modalSegue";
     
     Todo *todoListOne = [[Todo alloc] initWithTitle:@"Clean" andToDo:@"Clean up the bedroom" andPriorityNumber:2 andIsCompleted:NO];
     Todo *todoListTwo = [[Todo alloc] initWithTitle:@"Movie" andToDo:@"Watch doctor strange on tuesday" andPriorityNumber:1 andIsCompleted:NO];
@@ -41,12 +44,16 @@
 
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    [self.tableView reloadData];
+    
 }
 
 - (void)insertNewObject:(id)sender {
     if (!self.objects) {
         self.objects = [[NSMutableArray alloc] init];
     }
+    //FIX THIS
     [self.objects insertObject:[NSDate date] atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -60,11 +67,21 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Todo *object = self.objects[indexPath.row];
         DetailViewController *controller = (DetailViewController *)[segue destinationViewController];
-        controller.detailText = object.todoDescription;
+        controller.detailObject = object;
+        
+    } else if ([[segue identifier] isEqualToString:self.segueIdentifier]) {
+        
+        AddItemViewController *controller = (AddItemViewController *)[segue destinationViewController];
+        controller.todoObject = self.objects;
         
     }
 }
 
+-(void)performSegue {
+    
+    [self performSegueWithIdentifier:self.segueIdentifier sender:nil];
+    
+}
 
 #pragma mark - Table View
 

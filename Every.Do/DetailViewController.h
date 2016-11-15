@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Todo.h"
 
 @interface DetailViewController : UIViewController
 
-@property NSString *detailText;
+@property Todo *detailObject;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
 @end

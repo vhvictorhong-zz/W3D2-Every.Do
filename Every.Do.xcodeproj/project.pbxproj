@@ -18,6 +18,7 @@
 		2BDFE99A1DDB674700B87696 /* Every_DoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDFE9991DDB674700B87696 /* Every_DoUITests.m */; };
 		2BDFE9A91DDB678400B87696 /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDFE9A81DDB678400B87696 /* Todo.m */; };
 		2BDFE9AC1DDB6C2900B87696 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDFE9AB1DDB6C2900B87696 /* CustomTableViewCell.m */; };
+		2BDFE9AF1DDB76B400B87696 /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDFE9AE1DDB76B400B87696 /* AddItemViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		2BDFE9A81DDB678400B87696 /* Todo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Todo.m; sourceTree = "<group>"; };
 		2BDFE9AA1DDB6C2900B87696 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		2BDFE9AB1DDB6C2900B87696 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		2BDFE9AD1DDB76B400B87696 /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemViewController.h; sourceTree = "<group>"; };
+		2BDFE9AE1DDB76B400B87696 /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,8 @@
 				2BDFE9781DDB674700B87696 /* MasterViewController.m */,
 				2BDFE97A1DDB674700B87696 /* DetailViewController.h */,
 				2BDFE97B1DDB674700B87696 /* DetailViewController.m */,
+				2BDFE9AD1DDB76B400B87696 /* AddItemViewController.h */,
+				2BDFE9AE1DDB76B400B87696 /* AddItemViewController.m */,
 				2BDFE9A71DDB678400B87696 /* Todo.h */,
 				2BDFE9A81DDB678400B87696 /* Todo.m */,
 				2BDFE9AA1DDB6C2900B87696 /* CustomTableViewCell.h */,
@@ -290,6 +295,7 @@
 			files = (
 				2BDFE9A91DDB678400B87696 /* Todo.m in Sources */,
 				2BDFE9761DDB674700B87696 /* AppDelegate.m in Sources */,
+				2BDFE9AF1DDB76B400B87696 /* AddItemViewController.m in Sources */,
 				2BDFE9AC1DDB6C2900B87696 /* CustomTableViewCell.m in Sources */,
 				2BDFE9791DDB674700B87696 /* MasterViewController.m in Sources */,
 				2BDFE9731DDB674700B87696 /* main.m in Sources */,

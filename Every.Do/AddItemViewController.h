@@ -1,5 +1,5 @@
 //
-//  MasterViewController.h
+//  AddItemViewController.h
 //  Every.Do
 //
 //  Created by Victor Hong on 15/11/2016.
@@ -7,12 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Todo.h"
 
-@class DetailViewController;
+@interface AddItemViewController : UIViewController
 
-@interface MasterViewController : UITableViewController
-
-@property NSMutableArray *objects;
+@property NSMutableArray *todoObject;
 
 @end
-
