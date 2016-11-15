@@ -16,6 +16,9 @@
 @interface MasterViewController ()
 
 @property NSString *segueIdentifier;
+@property NSMutableArray *regularObject;
+@property NSMutableArray *importantObject;
+@property NSMutableArray *urgencyObject;
 
 @end
 
@@ -47,7 +50,6 @@
     [self.view addGestureRecognizer:swipeRight];
     
 }
-
 
 - (void)viewWillAppear:(BOOL)animated {
     
@@ -178,5 +180,43 @@
     [self.tableView reloadData];
     
 }
+
+#pragma mark - Master VC segmented control
+
+- (IBAction)segmentedControlChanged:(UISegmentedControl *)sender {
+    
+    NSSortDescriptor *sortDescriptorPriorityNumber = [[NSSortDescriptor alloc] initWithKey:@"priorityNumber"
+                                                 ascending:YES];
+    NSArray *sortDescriptorsPriorityNumber = [NSArray arrayWithObject:sortDescriptorPriorityNumber];
+    NSArray *sortedArrayPriorityNumber = [self.objects sortedArrayUsingDescriptors:sortDescriptorsPriorityNumber];
+    
+    NSSortDescriptor *sortDescriptorDeadline = [[NSSortDescriptor alloc] initWithKey:@"deadlineDate"
+                                                                                 ascending:YES];
+    NSArray *sortDescriptorsDeadline = [NSArray arrayWithObject:sortDescriptorDeadline];
+    NSArray *sortedArrayDeadline = [self.objects sortedArrayUsingDescriptors:sortDescriptorsDeadline];
+    
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+            
+            [self.objects removeAllObjects];
+            [self.objects addObjectsFromArray:sortedArrayPriorityNumber];
+            
+            [self.tableView reloadData];
+            
+            break;
+        case 1:
+            
+            [self.objects removeAllObjects];
+            [self.objects addObjectsFromArray:sortedArrayDeadline];
+            
+            [self.tableView reloadData];
+            
+            break;
+            
+        default:
+            break;
+    }
+}
+
 
 @end
