@@ -40,6 +40,11 @@
     [self.objects addObject:todoListTwo];
     [self.objects addObject:todoListThree];
     
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(crossItemOff:)];
+    swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+    
+    [self.view addGestureRecognizer:swipeRight];
+    
 }
 
 
@@ -137,5 +142,20 @@
     }
 }
 
+
+#pragma mark - Master VC methods
+
+-(void)crossItemOff:(UISwipeGestureRecognizer *)sender{
+    
+    CGPoint location = [sender locationInView:self.tableView];
+    NSIndexPath *swipedIndexPath = [self.tableView indexPathForRowAtPoint:location];
+    
+    Todo *object = self.objects[swipedIndexPath.row];
+    
+    object.isCompleted = YES;
+    
+    [self.tableView reloadData];
+    
+}
 
 @end
