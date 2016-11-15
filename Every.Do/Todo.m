@@ -10,7 +10,7 @@
 
 @implementation Todo
 
--(instancetype)initWithTitle:(NSString *)title andToDo:(NSString *)todoDescription andPriorityNumber:(NSInteger)priorityNumber andIsCompleted:(BOOL)isCompleted {
+-(instancetype)initWithTitle:(NSString *)title andToDo:(NSString *)todoDescription andPriorityNumber:(NSInteger)priorityNumber andIsCompleted:(BOOL)isCompleted andDeadlineDate:(NSDate *)deadlineDate {
     
     if (self = [super init]) {
         
@@ -18,6 +18,7 @@
         _todoDescription = todoDescription;
         _priorityNumber = priorityNumber;
         _isCompleted = isCompleted;
+        _deadlineDate = deadlineDate;
         
     }
     

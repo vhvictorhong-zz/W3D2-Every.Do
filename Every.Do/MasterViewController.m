@@ -11,6 +11,7 @@
 #import "CustomTableViewCell.h"
 #import "AddItemViewController.h"
 #import "Todo.h"
+#import "NSDate+HelperFunction.h"
 
 @interface MasterViewController ()
 
@@ -30,9 +31,9 @@
     
     self.segueIdentifier = @"modalSegue";
     
-    Todo *todoListOne = [[Todo alloc] initWithTitle:@"Clean" andToDo:@"Clean up the bedroom" andPriorityNumber:2 andIsCompleted:NO];
-    Todo *todoListTwo = [[Todo alloc] initWithTitle:@"Movie" andToDo:@"Watch doctor strange on tuesday" andPriorityNumber:1 andIsCompleted:NO];
-    Todo *todoListThree = [[Todo alloc] initWithTitle:@"Lighthouse Labs" andToDo:@"Go to class" andPriorityNumber:1 andIsCompleted:YES];
+    Todo *todoListOne = [[Todo alloc] initWithTitle:@"Clean" andToDo:@"Clean up the bedroom" andPriorityNumber:2 andIsCompleted:NO andDeadlineDate:[NSDate date]];
+    Todo *todoListTwo = [[Todo alloc] initWithTitle:@"Movie" andToDo:@"Watch doctor strange on tuesday" andPriorityNumber:1 andIsCompleted:NO andDeadlineDate:[NSDate date]];
+    Todo *todoListThree = [[Todo alloc] initWithTitle:@"Lighthouse Labs" andToDo:@"Go to class" andPriorityNumber:1 andIsCompleted:YES andDeadlineDate:[NSDate date]];
     
     self.objects = [[NSMutableArray alloc] init];
     
@@ -114,12 +115,14 @@
         cell.titleLabel.attributedText = attributeString;
         cell.descriptionLabel.text = object.todoDescription;
         cell.priorityLabel.text = [NSString stringWithFormat:@"Priority : %ld", (long)object.priorityNumber];
+        cell.deadlineLabel.text = [NSString stringWithFormat:@"Deadline : %@", [NSDate stringFromDate:object.deadlineDate]];
         
     } else {
         
         cell.titleLabel.text = object.title;
         cell.descriptionLabel.text = object.todoDescription;
         cell.priorityLabel.text = [NSString stringWithFormat:@"Priority : %ld", (long)object.priorityNumber];
+        cell.deadlineLabel.text = [NSString stringWithFormat:@"Deadline : %@", [NSDate stringFromDate:object.deadlineDate]];
         
     }
     

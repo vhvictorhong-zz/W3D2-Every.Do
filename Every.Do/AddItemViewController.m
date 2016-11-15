@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *todoTextField;
 @property (weak, nonatomic) IBOutlet UITextField *priorityTextField;
 @property BOOL isCompletedSwitch;
+@property NSDate *deadlineDate;
 
 @property Todo *addNewObject;
 
@@ -42,11 +43,17 @@
 
 - (IBAction)insertObjectButton:(UIButton *)sender {
     
-    self.addNewObject = [[Todo alloc] initWithTitle:self.titleTextField.text andToDo:self.todoTextField.text andPriorityNumber:[self.priorityTextField.text integerValue] andIsCompleted:self.isCompletedSwitch];
+    self.addNewObject = [[Todo alloc] initWithTitle:self.titleTextField.text andToDo:self.todoTextField.text andPriorityNumber:[self.priorityTextField.text integerValue] andIsCompleted:self.isCompletedSwitch andDeadlineDate:self.deadlineDate];
     
     [self.todoObject addObject:self.addNewObject];
     
     [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
+- (IBAction)datePickerChanged:(UIDatePicker *)sender {
+    
+    self.deadlineDate = sender.date;
     
 }
 

@@ -98,27 +98,37 @@
                                     <action selector="switchToggled:" destination="LUK-7y-pJt" eventType="valueChanged" id="QNb-3j-Xnb"/>
                                 </connections>
                             </switch>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npY-Xp-aB1">
-                                <rect key="frame" x="154.5" y="305" width="66" height="30"/>
-                                <state key="normal" title="Add Todo"/>
-                                <connections>
-                                    <action selector="insertObjectButton:" destination="LUK-7y-pJt" eventType="touchUpInside" id="Sze-Sw-XkX"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task completed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZV-pA-wEl">
                                 <rect key="frame" x="20" y="259" width="217" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npY-Xp-aB1">
+                                <rect key="frame" x="154" y="516" width="66" height="30"/>
+                                <state key="normal" title="Add Todo"/>
+                                <connections>
+                                    <action selector="insertObjectButton:" destination="LUK-7y-pJt" eventType="touchUpInside" id="Sze-Sw-XkX"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="oRS-ie-gb4">
+                                <rect key="frame" x="0.0" y="290" width="375" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="500930677.15438902">
+                                    <!--2016-11-15 19:24:37 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="datePickerChanged:" destination="LUK-7y-pJt" eventType="valueChanged" id="CNX-vG-gcA"/>
+                                </connections>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="7ed-kI-xHa" secondAttribute="trailing" constant="20" id="0mk-5U-uLh"/>
                             <constraint firstAttribute="trailing" secondItem="NL8-zV-aGL" secondAttribute="trailing" constant="20" id="1OU-ER-0Lm"/>
-                            <constraint firstItem="npY-Xp-aB1" firstAttribute="top" secondItem="XSE-lK-lTf" secondAttribute="bottom" constant="20" id="G7b-Ta-XII"/>
                             <constraint firstItem="NL8-zV-aGL" firstAttribute="leading" secondItem="ryZ-3Y-3pi" secondAttribute="leading" constant="20" id="JHZ-yi-Vaj"/>
                             <constraint firstItem="YLF-8v-9xS" firstAttribute="leading" secondItem="ryZ-3Y-3pi" secondAttribute="leading" constant="20" id="Ls0-ql-dvB"/>
+                            <constraint firstItem="oRS-ie-gb4" firstAttribute="leading" secondItem="ryZ-3Y-3pi" secondAttribute="leading" id="OLg-xS-Fvc"/>
+                            <constraint firstAttribute="trailing" secondItem="oRS-ie-gb4" secondAttribute="trailing" id="QOd-ee-0bw"/>
                             <constraint firstItem="KZV-pA-wEl" firstAttribute="leading" secondItem="ryZ-3Y-3pi" secondAttribute="leading" constant="20" id="VCX-gh-xWM"/>
                             <constraint firstAttribute="trailing" secondItem="YLF-8v-9xS" secondAttribute="trailing" constant="20" id="a3a-zW-4gI"/>
                             <constraint firstItem="YLF-8v-9xS" firstAttribute="top" secondItem="NL8-zV-aGL" secondAttribute="bottom" constant="20" id="eux-F8-NEP"/>
@@ -126,6 +136,8 @@
                             <constraint firstItem="KZV-pA-wEl" firstAttribute="top" secondItem="YLF-8v-9xS" secondAttribute="bottom" constant="25" id="jgu-bi-u5K"/>
                             <constraint firstItem="XSE-lK-lTf" firstAttribute="top" secondItem="YLF-8v-9xS" secondAttribute="bottom" constant="20" id="mYh-p3-2cn"/>
                             <constraint firstItem="7ed-kI-xHa" firstAttribute="top" secondItem="dJn-gs-cnf" secondAttribute="bottom" constant="40" id="mpO-wZ-rW6"/>
+                            <constraint firstItem="oRS-ie-gb4" firstAttribute="top" secondItem="KZV-pA-wEl" secondAttribute="bottom" constant="10" id="plu-g4-j90"/>
+                            <constraint firstItem="npY-Xp-aB1" firstAttribute="top" secondItem="oRS-ie-gb4" secondAttribute="bottom" constant="10" id="rC1-Df-gBe"/>
                             <constraint firstItem="XSE-lK-lTf" firstAttribute="leading" secondItem="KZV-pA-wEl" secondAttribute="trailing" constant="20" id="s57-zA-WCq"/>
                             <constraint firstItem="NL8-zV-aGL" firstAttribute="top" secondItem="7ed-kI-xHa" secondAttribute="bottom" constant="20" id="wgt-0g-I44"/>
                             <constraint firstItem="XSE-lK-lTf" firstAttribute="centerX" secondItem="ryZ-3Y-3pi" secondAttribute="centerX" multiplier="1.5" id="zqX-gr-81s"/>
@@ -165,7 +177,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ked-qH-gKT">
-                                            <rect key="frame" x="5" y="70.5" width="88" height="21"/>
+                                            <rect key="frame" x="5" y="36" width="88" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -176,18 +188,27 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deadline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgz-at-Qog">
+                                            <rect key="frame" x="5" y="67" width="67" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="hfh-Xt-B0L" firstAttribute="top" secondItem="37f-cq-3Eg" secondAttribute="top" constant="5" id="9bd-Ew-063"/>
                                         <constraint firstItem="hfh-Xt-B0L" firstAttribute="leading" secondItem="37f-cq-3Eg" secondAttribute="leading" constant="5" id="LO8-bX-4Db"/>
-                                        <constraint firstAttribute="bottom" secondItem="ked-qH-gKT" secondAttribute="bottom" constant="5" id="Ujz-K7-4qX"/>
                                         <constraint firstItem="ked-qH-gKT" firstAttribute="leading" secondItem="37f-cq-3Eg" secondAttribute="leading" constant="5" id="X2m-ua-BjB"/>
+                                        <constraint firstItem="ked-qH-gKT" firstAttribute="top" secondItem="hfh-Xt-B0L" secondAttribute="bottom" constant="10" id="Y9X-49-ikV"/>
                                         <constraint firstItem="N18-25-qo9" firstAttribute="top" secondItem="37f-cq-3Eg" secondAttribute="top" constant="5" id="YLc-bF-86Y"/>
+                                        <constraint firstItem="Tgz-at-Qog" firstAttribute="top" secondItem="ked-qH-gKT" secondAttribute="bottom" constant="10" id="gJg-MA-usQ"/>
                                         <constraint firstAttribute="trailing" secondItem="N18-25-qo9" secondAttribute="trailing" constant="100" id="ios-Kp-b1s"/>
+                                        <constraint firstItem="Tgz-at-Qog" firstAttribute="leading" secondItem="37f-cq-3Eg" secondAttribute="leading" constant="5" id="z4q-fg-Dec"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
+                                    <outlet property="deadlineLabel" destination="Tgz-at-Qog" id="xGx-Y0-Wen"/>
                                     <outlet property="descriptionLabel" destination="ked-qH-gKT" id="4Hy-XD-eOc"/>
                                     <outlet property="priorityLabel" destination="N18-25-qo9" id="TDa-2a-y7I"/>
                                     <outlet property="titleLabel" destination="hfh-Xt-B0L" id="tmk-kW-ar0"/>
