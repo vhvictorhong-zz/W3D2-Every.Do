@@ -8,6 +8,7 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "CustomTableViewCell.h"
 #import "Todo.h"
 
 @interface MasterViewController ()
@@ -41,13 +42,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 - (void)insertNewObject:(id)sender {
     if (!self.objects) {
@@ -84,10 +78,28 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    Todo *object = self.objects[indexPath.row];
+    
+    if (object.isCompleted) {
+        NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:object.title];
+        [attributeString addAttribute:NSStrikethroughStyleAttributeName
+                                value:@2
+                                range:NSMakeRange(0, [attributeString length])];
+        
+        cell.titleLabel.attributedText = attributeString;
+        cell.descriptionLabel.text = object.todoDescription;
+        cell.priorityLabel.text = [NSString stringWithFormat:@"Priority : %ld", (long)object.priorityNumber];
+        
+    } else {
+        
+        cell.titleLabel.text = object.title;
+        cell.descriptionLabel.text = object.todoDescription;
+        cell.priorityLabel.text = [NSString stringWithFormat:@"Priority : %ld", (long)object.priorityNumber];
+        
+    }
+    
     return cell;
 }
 
