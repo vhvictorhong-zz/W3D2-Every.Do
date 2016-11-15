@@ -8,10 +8,12 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "Todo.h"
 
 @interface MasterViewController ()
 
 @property NSMutableArray *objects;
+
 @end
 
 @implementation MasterViewController
@@ -23,6 +25,17 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    Todo *todoListOne = [[Todo alloc] initWithTitle:@"Clean" andToDo:@"Clean up the bedroom" andPriorityNumber:2 andIsCompleted:NO];
+    Todo *todoListTwo = [[Todo alloc] initWithTitle:@"Movie" andToDo:@"Watch doctor strange on tuesday" andPriorityNumber:1 andIsCompleted:NO];
+    Todo *todoListThree = [[Todo alloc] initWithTitle:@"Lighthouse Labs" andToDo:@"Go to class" andPriorityNumber:1 andIsCompleted:YES];
+    
+    self.objects = [[NSMutableArray alloc] init];
+    
+    [self.objects addObject:todoListOne];
+    [self.objects addObject:todoListTwo];
+    [self.objects addObject:todoListThree];
+    
 }
 
 
